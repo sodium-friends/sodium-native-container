@@ -22,3 +22,5 @@ RUN curl -fs https://raw.githubusercontent.com/mafintosh/node-install/master/ins
   npm config set save false && \
   mkdir -p ~/.config/configstore/ && \
   printf '{"optOut": true,"lastUpdateCheck": 0}' > ~/.config/configstore/update-notifier-npm.json
+
+COPY build.sh /root/build.sh
