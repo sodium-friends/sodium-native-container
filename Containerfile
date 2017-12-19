@@ -1,13 +1,13 @@
-FROM ubuntu:trusty
+FROM debian:jessie
 RUN rm -f /etc/resolv.conf && echo '8.8.8.8' > /etc/resolv.conf
-RUN apt-get update
 
-RUN apt-get install -y software-properties-common && \
-  add-apt-repository -y ppa:ubuntu-toolchain-r/test && apt-get update && \
-  apt-get install -y g++-7
+RUN echo deb http://ftp.de.debian.org/debian buster main >> /etc/apt/sources.list
+
+RUN apt-get update && \
+  apt-get install -y software-properties-common gcc-7
 
 # Upgrade git (and other deps needed)
-RUN add-apt-repository -y ppa:git-core/ppa && apt-get update && \
+RUN apt-get update && \
   apt-get install -y git curl vim libtool automake autoconf make
 
 # Export newest gcc
