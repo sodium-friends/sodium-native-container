@@ -6,6 +6,6 @@ mkcontainer
 
 mkdir -p build
 
-sudo systemd-nspawn --quiet --image conainter.img \
+sudo systemd-nspawn --quiet --image container.img \
   --bind=$(pwd)/build:/root/build \
   /bin/bash /root/build.sh
