@@ -9,8 +9,8 @@ git clone git://github.com/sodium-friends/sodium-native.git
 
 cd sodium-native
 
-npm run fetch-libsodium
-npm install
+export CC=gcc-7 CXX=g++-7
+npm install --unsafe-perm
 npm test
 
 ARCHIVE_NAME="`git describe --tags`-linux-`uname -m`.tar"

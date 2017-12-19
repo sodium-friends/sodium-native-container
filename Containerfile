@@ -4,14 +4,11 @@ RUN rm -f /etc/resolv.conf && echo '8.8.8.8' > /etc/resolv.conf
 RUN echo deb http://ftp.de.debian.org/debian buster main >> /etc/apt/sources.list
 
 RUN apt-get update && \
-  apt-get install -y software-properties-common gcc-7
+  apt-get install -y software-properties-common g++-7
 
 # Upgrade git (and other deps needed)
 RUN apt-get update && \
-  apt-get install -y git curl vim libtool automake autoconf make
-
-# Export newest gcc
-ENV CC=gcc-7 CXX=g++-7
+  apt-get install -y git curl vim libtool automake autoconf make python
 
 # Install Node.js
 RUN curl -fs https://raw.githubusercontent.com/mafintosh/node-install/master/install | sh && \
